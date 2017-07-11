@@ -1,6 +1,7 @@
 package com.ncube.test.pages.hotline_pages;
 
 import com.ncube.test.webtestsbase.BasePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -34,7 +35,7 @@ public class HotlinePage extends BasePage {
     }
 
     public AppleIPhone7Page chooseAppleIPhone7FromList(String s) {
-        WebElement element = findElementByXpath("//a[contains(.,'" + s + "')]");
+        WebElement element = findElement(By.xpath("//a[contains(.,'" + s + "')]"));
         element.click();
         return new AppleIPhone7Page();
     }

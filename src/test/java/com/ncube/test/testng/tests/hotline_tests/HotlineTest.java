@@ -13,20 +13,22 @@ public class HotlineTest extends BaseTest {
     @Test
     public void searchTheCheapestIphone7Test() {
         HotlinePage hotlinePage = new HotlinePage();
+        AppleIPhone7Page iPhone7Page;
 
         hotlinePage.fillInSearchBox("iPhone");
-        AppleIPhone7Page iPhone7Page = hotlinePage.chooseAppleIPhone7FromList("Apple iPhone 7");
+        iPhone7Page = hotlinePage.chooseAppleIPhone7FromList("Apple iPhone 7");
 
         iPhone7Page.goToAllOffersTab()
                     .getAllOffers()
+                    .filterInvisibleElements()
                     .filterOffersWithReviewsNotLessThen(11)
                     .filterOffersWithWarrantyMonthsNotLessThen(6)
                     .chooseTheCheapestElement();
 
         iPhone7Page.switchTab(1);
 
-        assertTrue("The page's URL address should contains \"mobilluck.com.ua\"",
-                iPhone7Page.getCurrentURL().contains("mobilluck.com.ua"));
+        assertTrue("The page's URL address should contains \"mrfix.com.ua\"",
+                iPhone7Page.getCurrentURL().contains("mrfix.com.ua"));
 
     }
 }
